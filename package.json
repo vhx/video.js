@@ -153,7 +153,7 @@
     "uglify-js": "~2.8.8",
     "unified": "^6.1.5",
     "videojs-doc-generator": "0.0.1",
-    "videojs-flash": "^2.0.0",
+    "videojs-flash": "^2.0.1",
     "videojs-standard": "^6.0.1",
     "webpack": "^1.15.0"
   },
