@@ -835,8 +835,8 @@ class Html5 extends Tech {
    * @deprecated The default value of the "manualCleanup" parameter will default
    * to "false" in upcoming versions of Video.js
    */
-  addRemoteTextTrack(options, manualCleanup) {
-    const htmlTrackElement = super.addRemoteTextTrack(options, manualCleanup);
+  addRemoteTextTrackVHX(options, manualCleanup) {
+    const htmlTrackElement = super.addRemoteTextTrackVHX(options, manualCleanup);
 
     if (this.featuresNativeTextTracks) {
       this.el().appendChild(htmlTrackElement);

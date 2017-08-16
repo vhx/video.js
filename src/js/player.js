@@ -3001,6 +3001,13 @@ class Player extends Component {
     }
   }
 
+  // VHX HACK!!!
+  addRemoteTextTrackVHX(options, manualCleanup) {
+    if (this.tech_) {
+      return this.tech_.addRemoteTextTrackVHX(options, manualCleanup);
+    }
+  }
+
   /**
    * Remove a remote {@link TextTrack} from the respective
    * {@link TextTrackList} and {@link HTMLTrackElementList}.

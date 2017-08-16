@@ -105,8 +105,9 @@ class TextTrackDisplay extends Component {
 
       const tracks = this.options_.playerOptions.tracks || [];
 
+      // TODO: VHX HACK
       for (let i = 0; i < tracks.length; i++) {
-        this.player_.addRemoteTextTrack(tracks[i], true);
+        this.player_.addRemoteTextTrackVHX(tracks[i], true);
       }
 
       const modes = {captions: 1, subtitles: 1};

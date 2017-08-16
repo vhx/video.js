@@ -768,8 +768,10 @@ class Tech extends Component {
    * @deprecated The default functionality for this function will be equivalent
    *             to "manualCleanup=false" in the future. The manualCleanup parameter will
    *             also be removed.
+   *
+   * TODO: VHX HACK ATTACK
    */
-  addRemoteTextTrack(options = {}, manualCleanup) {
+  addRemoteTextTrackVHX(options = {}, manualCleanup) {
     const htmlTrackElement = this.createRemoteTextTrack(options);
 
     if (manualCleanup !== true && manualCleanup !== false) {

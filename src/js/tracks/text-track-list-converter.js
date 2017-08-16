@@ -85,7 +85,7 @@ const textTracksToJson = function(tech) {
  */
 const jsonToTextTracks = function(json, tech) {
   json.forEach(function(track) {
-    const addedTrack = tech.addRemoteTextTrack(track).track;
+    const addedTrack = tech.addRemoteTextTrackVHX(track).track;
 
     if (!track.src && track.cues) {
       track.cues.forEach((cue) => addedTrack.addCue(cue));
