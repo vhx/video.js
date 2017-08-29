@@ -8914,7 +8914,7 @@ var _mediaError = _dereq_(46);
 
 var _mediaError2 = _interopRequireDefault(_mediaError);
 
-var _tuple = _dereq_(100);
+var _tuple = _dereq_(101);
 
 var _tuple2 = _interopRequireDefault(_tuple);
 
@@ -12549,7 +12549,7 @@ TECH_EVENTS_RETRIGGER.forEach(function (event) {
 _component2['default'].registerComponent('Player', Player);
 exports['default'] = Player;
 
-},{"1":1,"100":100,"4":4,"41":41,"44":44,"45":45,"46":46,"5":5,"50":50,"55":55,"59":59,"60":60,"61":61,"62":62,"63":63,"68":68,"69":69,"71":71,"76":76,"78":78,"79":79,"8":8,"81":81,"82":82,"83":83,"85":85,"86":86,"87":87,"88":88,"89":89,"90":90,"91":91,"96":96,"97":97}],52:[function(_dereq_,module,exports){
+},{"1":1,"101":101,"4":4,"41":41,"44":44,"45":45,"46":46,"5":5,"50":50,"55":55,"59":59,"60":60,"61":61,"62":62,"63":63,"68":68,"69":69,"71":71,"76":76,"78":78,"79":79,"8":8,"81":81,"82":82,"83":83,"85":85,"86":86,"87":87,"88":88,"89":89,"90":90,"91":91,"96":96,"97":97}],52:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -13814,7 +13814,7 @@ var Flash = function (_Tech) {
     // Otherwise this adds a CDN url.
     // The CDN also auto-adds a swf URL for that specific version.
     if (!options.swf) {
-      var ver = '5.4.1';
+      var ver = '5.1.0';
 
       options.swf = '//vjs.zencdn.net/swf/' + ver + '/video-js.swf';
     }
@@ -14902,7 +14902,7 @@ var _log = _dereq_(86);
 
 var _log2 = _interopRequireDefault(_log);
 
-var _tsml = _dereq_(102);
+var _tsml = _dereq_(103);
 
 var _tsml2 = _interopRequireDefault(_tsml);
 
@@ -16772,7 +16772,7 @@ _component2['default'].registerComponent('Html5', Html5);
 _tech2['default'].registerTech('Html5', Html5);
 exports['default'] = Html5;
 
-},{"102":102,"5":5,"62":62,"78":78,"81":81,"83":83,"86":86,"87":87,"88":88,"91":91,"92":92,"96":96,"97":97}],61:[function(_dereq_,module,exports){
+},{"103":103,"5":5,"62":62,"78":78,"81":81,"83":83,"86":86,"87":87,"88":88,"91":91,"92":92,"96":96,"97":97}],61:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -20265,7 +20265,7 @@ var _track2 = _interopRequireDefault(_track);
 
 var _url = _dereq_(92);
 
-var _xhr = _dereq_(103);
+var _xhr = _dereq_(104);
 
 var _xhr2 = _interopRequireDefault(_xhr);
 
@@ -20687,7 +20687,7 @@ TextTrack.prototype.allowedEvents_ = {
 
 exports['default'] = TextTrack;
 
-},{"103":103,"67":67,"73":73,"75":75,"78":78,"83":83,"86":86,"87":87,"92":92,"97":97}],73:[function(_dereq_,module,exports){
+},{"104":104,"67":67,"73":73,"75":75,"78":78,"83":83,"86":86,"87":87,"92":92,"97":97}],73:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -21713,7 +21713,7 @@ var _log = _dereq_(86);
 
 var _log2 = _interopRequireDefault(_log);
 
-var _tsml = _dereq_(102);
+var _tsml = _dereq_(103);
 
 var _tsml2 = _interopRequireDefault(_tsml);
 
@@ -22560,7 +22560,7 @@ var $ = exports.$ = createQuerier('querySelector');
  */
 var $$ = exports.$$ = createQuerier('querySelectorAll');
 
-},{"102":102,"85":85,"86":86,"88":88,"96":96,"97":97}],82:[function(_dereq_,module,exports){
+},{"103":103,"85":85,"86":86,"88":88,"96":96,"97":97}],82:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -24054,7 +24054,7 @@ var _extend = _dereq_(43);
 
 var _extend2 = _interopRequireDefault(_extend);
 
-var _xhr = _dereq_(103);
+var _xhr = _dereq_(104);
 
 var _xhr2 = _interopRequireDefault(_xhr);
 
@@ -24674,7 +24674,7 @@ if (typeof define === 'function' && define.amd) {
 
 exports['default'] = videojs;
 
-},{"103":103,"42":42,"43":43,"5":5,"51":51,"52":52,"56":56,"62":62,"64":64,"72":72,"77":77,"78":78,"80":80,"81":81,"82":82,"83":83,"84":84,"86":86,"87":87,"88":88,"89":89,"90":90,"92":92,"96":96,"97":97}],94:[function(_dereq_,module,exports){
+},{"104":104,"42":42,"43":43,"5":5,"51":51,"52":52,"56":56,"62":62,"64":64,"72":72,"77":77,"78":78,"80":80,"81":81,"82":82,"83":83,"84":84,"86":86,"87":87,"88":88,"89":89,"90":90,"92":92,"96":96,"97":97}],94:[function(_dereq_,module,exports){
 
 },{}],95:[function(_dereq_,module,exports){
 var isFunction = _dereq_(98)
@@ -24774,7 +24774,28 @@ function isFunction (fn) {
 };
 
 },{}],99:[function(_dereq_,module,exports){
-var trim = _dereq_(101)
+module.exports = once
+
+once.proto = once(function () {
+  Object.defineProperty(Function.prototype, 'once', {
+    value: function () {
+      return once(this)
+    },
+    configurable: true
+  })
+})
+
+function once (fn) {
+  var called = false
+  return function () {
+    if (called) return
+    called = true
+    return fn.apply(this, arguments)
+  }
+}
+
+},{}],100:[function(_dereq_,module,exports){
+var trim = _dereq_(102)
   , forEach = _dereq_(95)
   , isArray = function(arg) {
       return Object.prototype.toString.call(arg) === '[object Array]';
@@ -24805,7 +24826,7 @@ module.exports = function (headers) {
 
   return result
 }
-},{"101":101,"95":95}],100:[function(_dereq_,module,exports){
+},{"102":102,"95":95}],101:[function(_dereq_,module,exports){
 module.exports = SafeParseTuple
 
 function SafeParseTuple(obj, reviver) {
@@ -24821,7 +24842,7 @@ function SafeParseTuple(obj, reviver) {
     return [error, json]
 }
 
-},{}],101:[function(_dereq_,module,exports){
+},{}],102:[function(_dereq_,module,exports){
 
 exports = module.exports = trim;
 
@@ -24837,7 +24858,7 @@ exports.right = function(str){
   return str.replace(/\s*$/, '');
 };
 
-},{}],102:[function(_dereq_,module,exports){
+},{}],103:[function(_dereq_,module,exports){
 function clean (s) {
   return s.replace(/\n\r?\s*/g, '')
 }
@@ -24852,12 +24873,13 @@ module.exports = function tsml (sa) {
 
   return s
 }
-},{}],103:[function(_dereq_,module,exports){
+},{}],104:[function(_dereq_,module,exports){
 "use strict";
 var window = _dereq_(97)
+var once = _dereq_(99)
 var isFunction = _dereq_(98)
-var parseHeaders = _dereq_(99)
-var xtend = _dereq_(104)
+var parseHeaders = _dereq_(100)
+var xtend = _dereq_(105)
 
 module.exports = createXHR
 createXHR.XMLHttpRequest = window.XMLHttpRequest || noop
@@ -24906,17 +24928,11 @@ function createXHR(uri, options, callback) {
 }
 
 function _createXHR(options) {
-    if(typeof options.callback === "undefined"){
+    var callback = options.callback
+    if(typeof callback === "undefined"){
         throw new Error("callback argument missing")
     }
-
-    var called = false
-    var callback = function cbOnce(err, response, body){
-        if(!called){
-            called = true
-            options.callback(err, response, body)
-        }
-    }
+    callback = once(callback)
 
     function readystatechange() {
         if (xhr.readyState === 4) {
@@ -24930,8 +24946,8 @@ function _createXHR(options) {
 
         if (xhr.response) {
             body = xhr.response
-        } else {
-            body = xhr.responseText || getXml(xhr)
+        } else if (xhr.responseType === "text" || !xhr.responseType) {
+            body = xhr.responseText || xhr.responseXML
         }
 
         if (isJson) {
@@ -24958,7 +24974,7 @@ function _createXHR(options) {
             evt = new Error("" + (evt || "Unknown XMLHttpRequest Error") )
         }
         evt.statusCode = 0
-        return callback(evt, failureResponse)
+        callback(evt, failureResponse)
     }
 
     // will load the data & process the response in a special response object
@@ -24990,7 +25006,8 @@ function _createXHR(options) {
         } else {
             err = new Error("Internal XMLHttpRequest Error")
         }
-        return callback(err, response, response.body)
+        callback(err, response, response.body)
+
     }
 
     var xhr = options.xhr || null
@@ -25075,21 +25092,9 @@ function _createXHR(options) {
 
 }
 
-function getXml(xhr) {
-    if (xhr.responseType === "document") {
-        return xhr.responseXML
-    }
-    var firefoxBugTakenEffect = xhr.status === 204 && xhr.responseXML && xhr.responseXML.documentElement.nodeName === "parsererror"
-    if (xhr.responseType === "" && !firefoxBugTakenEffect) {
-        return xhr.responseXML
-    }
-
-    return null
-}
-
 function noop() {}
 
-},{"104":104,"97":97,"98":98,"99":99}],104:[function(_dereq_,module,exports){
+},{"100":100,"105":105,"97":97,"98":98,"99":99}],105:[function(_dereq_,module,exports){
 module.exports = extend
 
 var hasOwnProperty = Object.prototype.hasOwnProperty;
