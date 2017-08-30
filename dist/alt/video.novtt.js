@@ -17528,7 +17528,7 @@ var Tech = function (_Component) {
       // passed in
       var script = _document2['default'].createElement('script');
 
-      script.src = this.options_['vtt.js'] || '../node_modules/videojs-vtt.js/dist/vtt.js';
+      script.src = this.options_['vtt.js'] || '../../../node_modules/videojs-vtt.js/dist/vtt.js';
       script.onload = function () {
         /**
          * Fired when vtt.js is loaded.

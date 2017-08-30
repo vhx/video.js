@@ -551,7 +551,7 @@ class Tech extends Component {
       // passed in
       const script = document.createElement('script');
 
-      script.src = this.options_['vtt.js'] || '../node_modules/videojs-vtt.js/dist/vtt.js';
+      script.src = this.options_['vtt.js'] || '../../../node_modules/videojs-vtt.js/dist/vtt.js';
       script.onload = () => {
         /**
          * Fired when vtt.js is loaded.
