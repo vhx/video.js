@@ -17506,15 +17506,15 @@ var Tech = function (_Component) {
   Tech.prototype.addWebVttScript_ = function addWebVttScript_() {
     var _this4 = this;
 
-    if (_window2['default'].WebVTT) {
-      return;
-    }
+    // if (window.WebVTT) {
+    //   return;
+    // }
 
     // Initially, Tech.el_ is a child of a dummy-div wait until the Component system
     // signals that the Tech is ready at which point Tech.el_ is part of the DOM
     // before inserting the WebVTT script
     if (!_window2['default'].WebVTT && this.el().parentNode !== null && this.el().parentNode !== undefined) {
-      // const vtt = require('videojs-vtt.js');
+      var vtt = {};
 
       // load via require if available and vtt.js script location was not passed in
       // as an option. novtt builds will turn the above require call into an empty object
@@ -17528,7 +17528,8 @@ var Tech = function (_Component) {
       // passed in
       var script = _document2['default'].createElement('script');
 
-      script.src = this.options_['vtt.js'] || '../../../node_modules/videojs-vtt.js/dist/vtt.js';
+      // script.src = this.options_['vtt.js'] || 'https://vjs.zencdn.net/vttjs/0.12.4/vtt.min.js';
+      script.src = this.options_['vtt.js'] || vtt;
       script.onload = function () {
         /**
          * Fired when vtt.js is loaded.

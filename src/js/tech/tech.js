@@ -529,15 +529,15 @@ class Tech extends Component {
    * @fires Tech#vttjserror
    */
   addWebVttScript_() {
-    if (window.WebVTT) {
-      return;
-    }
+    // if (window.WebVTT) {
+    //   return;
+    // }
 
     // Initially, Tech.el_ is a child of a dummy-div wait until the Component system
     // signals that the Tech is ready at which point Tech.el_ is part of the DOM
     // before inserting the WebVTT script
     if (!window.WebVTT && this.el().parentNode !== null && this.el().parentNode !== undefined) {
-      // const vtt = require('videojs-vtt.js');
+      const vtt = require('videojs-vtt.js');
 
       // load via require if available and vtt.js script location was not passed in
       // as an option. novtt builds will turn the above require call into an empty object
@@ -551,7 +551,8 @@ class Tech extends Component {
       // passed in
       const script = document.createElement('script');
 
-      script.src = this.options_['vtt.js'] || '../../../node_modules/videojs-vtt.js/dist/vtt.js';
+      // script.src = this.options_['vtt.js'] || 'https://vjs.zencdn.net/vttjs/0.12.4/vtt.min.js';
+      script.src = this.options_['vtt.js'] || vtt;
       script.onload = () => {
         /**
          * Fired when vtt.js is loaded.
